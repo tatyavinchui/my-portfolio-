@@ -1,0 +1,62 @@
+<h2>Admin Panel - View Messages</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Message</th>
+            <th>Response</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody id="messages-table"></tbody>
+</table>
+
+<script>
+function fetchMessages() {
+    fetch("http://localhost:5000/messages")
+    .then(response => response.json())
+    .then(data => {
+        let tableContent = "";
+        data.forEach(msg => {
+            tableContent += `
+                <tr>
+                    <td>${msg.id}</td>
+                    <td>${msg.name}</td>
+                    <td>${msg.email}</td>
+                    <td>${msg.message}</td>
+                    <td>${msg.response || "No response yet"}</td>
+                    <td>
+                        <input type="text" id="response-${msg.id}" placeholder="Type response">
+                        <button onclick="sendResponse(${msg.id})">Send</button>
+                    </td>
+                </tr>
+            `;
+        });
+        document.getElementById("messages-table").innerHTML = tableContent;
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+function sendResponse(id) {
+    let responseText = document.getElementById(`response-${id}`).value;
+
+    fetch("http://localhost:5000/respond", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ id: id, response: responseText })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        fetchMessages(); // Refresh the table
+    })
+    .catch(error => console.error("Error:", error));
+}
+
+// Load messages when page loads
+fetchMessages();
+</script>

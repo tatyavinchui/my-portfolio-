@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Portfolio website</title>
+    <!-- font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <!-- <! ----Header desing -->
+     <!-- <header class="header">
+        <a href="#" class="logo">Portfolio</a>
+        <i class="fa-solid fa-bars" id="menu-icon"></i>
+        <nav class="navbar">
+            <a href="#home" class="acvtive">Home</a>
+            <a href="#about" class="acvtive">About</a>
+            <a href="#service" class="acvtive">service</a>
+            <a href="#project" class="acvtive">projects</a>
+            <a href="#contact" class="acvtive">Contact</a>
+        </nav>
+     </header> -->
+     <!-- home section  -->
+     <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hi, Myself</h3>
+            <h1>Aashish parihar</h1>
+            <h3>and i'm a <span> Frontend Developer</span></h3>
+            <p></p>
+            <div class="social-media">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+            </div>
+            <a href="#" class="btn">Download CV</a>
+        </div>   
+     <div class="home-img">
+        <img src="profile.webp" alt="">
+     </div>
+    </section>
+    <!-- About section -->
+     <section class="about" id="about">
+        <div class="about-img">
+            <img src="about.webp" alt="">
+        </div>
+        <div class="about-content">
+            <h2 class="heading">ABOUT <span>Me</span></h2>
+            <h3>Frontend Developer</h3>
+            <p>Hello! I’m Deepak Rajawade, a passionate frontend developer currently pursuing a BSc in IT at YCC College, Navi Mumbai. I specialize in crafting interactive and visually appealing websites, focusing on UI/UX design, responsive layouts, and dynamic content. I have worked on multiple projects, including a Laptop Selling webpage, a Nike Shoes webpage, and a Pickup Line Generator. These projects have strengthened my skills in HTML, CSS, and UX/UI design. Additionally, I am learning Python and Linux to expand my technical knowledge.Beyond web development, I have experience in communication and marketing, gained through my work at YUVA Home Tuition. I also hold a certificate in prompt engineering from Great Learning, which has enhanced my problem-solving approach.I am always eager to learn and explore new trends in web development, aiming to create engaging digital experiences that are both functional and user-friendly.</p>
+            <a href="#" class="btn">Read more</a>
+
+        </div>
+     </section>
+  <!-- Sevices section  -->
+      <section class="service" id="service">
+        <h2 class="heading">MY <span>Service</span></h2>
+        <div class="services-container">
+            <div class="service-box">
+                <i class="fa-solid fa-code"></i>
+                <h3>Frontend Development</h3>
+                <p>Building modern, responsive, and visually appealing websites using HTML, CSS, and UI/UX principles.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+
+            <div class="service-box">
+                <i class="fa-solid fa-palette"></i>
+                <h3>UI/UX Design</h3>
+                <p>Creating user-friendly and engaging designs with smooth interactions and hover effects.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+
+            <div class="service-box">
+                <i class="fa-brands fa-linux"></i>
+                <h3>Linux & Python</h3>
+                <p>Learning Linux and Python to enhance development skills and explore automation & backend possibilities.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+
+             <div class="service-box">
+                <i class="fa-solid fa-terminal"></i>
+                <h3>Prompt Engineering</h3>
+                <p>Utilizing AI-powered techniques to generate precise and optimized responses for various applications.</p>
+                <a href="#" class="btn">Read More</a>
+            </div>
+        </div>
+      </section>
+       <!-- project section  -->
+       <section class="projects" id="project">
+           <h2 class="heading">My <span>Projects</span></h2>
+        <div class="projects-container">
+            <div class="project-box">
+                <img src="laptop selling.webp" alt="Laptop Selling Webpage">
+                <h3>Laptop Selling Webpage</h3>
+                <p>A responsive website for selling laptops with an interactive UI.</p>
+                <a href="#" target="_blank">View Project</a>
+            </div>
+            <div class="project-box">
+                <img src="nike.webp" alt="Nike Shoes Webpage">
+                <h3>Nike Shoes Webpage</h3>
+                <p>An elegant webpage displaying Nike shoes with hover effects.</p>
+                <a href="#" target="_blank">View Project</a>
+            </div>
+            <div class="project-box">
+                <img src="game zone.webp" alt="Game Zone Website">
+                <h3>Game Zone Website</h3>
+                <p>A gaming-themed website with booking features and user reviews.</p>
+                <a href="#" target="_blank">View Project</a>
+            </div>
+        </div>
+    </section>
+      <!-- contract section -->
+      <section class="contact" id="contact">
+        <h2 class="heading">Contact <span>Me</span></h2>
+        <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+        
+            let formData = {
+                name: document.getElementById("name").value,
+                email: document.getElementById("email").value,
+                message: document.getElementById("message").value
+            };
+        
+            fetch("http://localhost:5000/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                this.reset(); // Clear form after submission
+            })
+            .catch(error => console.error("Error:", error));
+        });
+        </script>
+     <script src="Js/server.js"></script>
+    </body>
+</html>
