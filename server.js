@@ -24,7 +24,7 @@ function saveMessages(messages) {
     fs.writeFileSync(DATA_FILE, JSON.stringify(messages, null, 2));
 }
 
-// 📌 Route: Store User Message
+// 📌 Route: Store User Message and return only that message
 app.post("/submit", (req, res) => {
     const { name, email, message } = req.body;
     
@@ -44,12 +44,18 @@ app.post("/submit", (req, res) => {
     messages.push(newMessage);
     saveMessages(messages);
 
-    res.json({ status: "success", message: "Message received!" });
+    res.json({ status: "success", message: "Message received!", data: newMessage });
 });
 
-// 📌 Route: View All Messages (For Admin)
-app.get("/messages", (req, res) => {
-    res.json(getMessages());
+// 📌 Route: View Messages for a Specific User (Filtered by Email)
+app.get("/messages/:email", (req, res) => {
+    const userMessages = getMessages().filter(msg => msg.email === req.params.email);
+    
+    if (userMessages.length === 0) {
+        return res.status(404).json({ status: "error", message: "No messages found for this email!" });
+    }
+
+    res.json(userMessages);
 });
 
 // 📌 Route: Respond to a Message
