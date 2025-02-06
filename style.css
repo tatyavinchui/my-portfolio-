@@ -437,3 +437,142 @@ body {
         width: 100%;
     }
 }
+/* Mobile Friendly View */
+
+/* For tablets and small screens */
+    @media (max-width: 768px) {
+        .home {
+            flex-direction: column-reverse; /* Moves image below text */
+            text-align: center;
+            gap: 2rem;
+        }
+    
+        .home-img img {
+            width: 50vw; /* Adjusted size for better fit */
+            max-width: 250px; /* Prevents it from being too large */
+            display: block;
+            margin: 0 auto;
+        }
+    
+        .home-content h1 {
+            font-size: 3.5rem;
+        }
+    
+        .home-content h3 {
+            font-size: 2.5rem;
+        }
+    
+        .home-content p {
+            font-size: 1.4rem;
+            max-width: 100%;
+        }
+    }
+
+    /* About Section */
+    .about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-img img {
+        width: 80%;
+    }
+
+    .about-content h2 {
+        font-size: 3rem;
+    }
+
+    .about-content p {
+        font-size: 1.4rem;
+        max-width: 100%;
+    }
+
+    /* Services Section */
+    .services-container {
+        flex-direction: column;
+    }
+
+    .service-box {
+        width: 100%;
+    }
+
+    /* Contact Section */
+    .contact {
+        padding: 4rem 5%;
+    }
+
+    .contact .heading {
+        font-size: 2rem;
+    }
+
+    .contact form {
+        width: 100%;
+    }
+
+    .contact form input,
+    .contact form textarea {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .contact .btn {
+        width: 100%;
+        font-size: 1.2rem;
+    }
+}
+
+/* For mobile screens (under 480px) */
+@media (max-width: 480px) {
+    .home-img img {
+        width: 60vw;
+        max-width: 200px;
+    }
+
+    .home-content h1 {
+        font-size: 3rem;
+    }
+
+    .home-content h3 {
+        font-size: 2rem;
+    }
+
+    .home-content p {
+        font-size: 1.2rem;
+    }
+}
+
+    .about-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .about-content p {
+        font-size: 1.2rem;
+    }
+
+    .service .heading {
+        font-size: 2.5rem;
+    }
+
+    .service-box {
+        padding: 2rem;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+
+    .contact .heading {
+        font-size: 1.8rem;
+    }
+
+    .contact form input,
+    .contact form textarea {
+        font-size: 0.9rem;
+    }
+
+    .contact .btn {
+        font-size: 1rem;
+    }
+}
+
